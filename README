@@ -1,0 +1,43 @@
+﻿
+Google Developer Day 2011 Japan の DevQuiz の問題を解くために作成したプログラム群です。
+
+    DevQuiz: http://gdd-2011-quiz-japan.appspot.com/
+
+(1) GoogleAppScript
+  分野別クイズの1つ
+    Google Apps Script: http://gdd-2011-quiz-japan.appspot.com/problems?problem=apps_script
+  を解くために、まず、JSON 形式で提供されているデータを入力とし、所定のスプレッドシートの元
+  となる CSV 形式のファイルを出力するプログラムを C で書きました。
+
+  このプログラムが出力した CSV ファイル(都市ごとに1ファイル) を Excel で読み込み(1都市1シー
+  ト)、各シートの C1 に =B1/A1 という式を埋め込み、C1 を C2 ～ C20 にコピーした後、C列の単位
+  を % にすることで、所定のスプレッドシートを得ました。
+
+  このスプレッドシートを Google Docs にアップロードし、フル Google SpreadSheets 形式に変換す
+  ることにより、解答が完成します。
+
+(2) hitoriGame
+  分野別クイズの1つ
+    一人ゲーム: http://gdd-2011-quiz-japan.appspot.com/problems?problem=algorithm
+  の問題を標準入力から読み取り、回答を標準出力に吐き出すプログラムを C で書きました。
+
+  以下の戦略で解を求めています。
+    [base]
+      (a) すべての数が 5 の倍数の場合 → 手数を返す
+      (b) すべての数が 5 の倍数ではないものの、5 の倍数が少なくとも1つ以上含まれる場合
+          (a1) 5 の倍数をすべて取り除いてみる → 再帰的に [base] を実行
+          (a2) すべての数を 2 で割ってみる    → 再帰的に [base] を実行
+        上記 (a1) と (a2) のうちの手数が短い方を返す
+      (c) 5 の倍数が全く含まれない場合
+          (c1) 2 で割ってみる                 → 再帰的に [base] を実行
+
+(3) slidePuzzle
+  チャレンジクイズの
+    スライドパズル: http://gdd-2011-quiz-japan.appspot.com/problems?problem=slidingpuzzle
+  の出題内容を盤面として再現し、手動で解く GUI プログラムを C♯ で書きました。
+  手動で解く方式なので、このまま、プログラム(の実行形式)をパズル好きの人に提供し、パズル
+  を楽しんでもらうことができます。
+
+  実際に解いてみた感想として、簡単な問題なら1分かからずに解けますし、難しい問題でも10分も
+  あれば解けるでしょう。
+
